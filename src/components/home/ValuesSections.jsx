@@ -3,16 +3,46 @@
 import { values } from "@/data/home";
 import { useInView } from "@/hooks/useInView";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { FiArrowUpRight } from "react-icons/fi";
 import { Eyebrow } from "./Eyebrow";
 import { ValueCard } from "./ValueCard";
 
 const DEFAULT_ACTIVE = 0;
 
+// How long the cursor has to sit on a card before it expands. Short
+// enough not to feel laggy, long enough that just sweeping the mouse
+// across the row on the way to something else doesn't trigger a cascade
+// of expansions. Only gates the ENTER — leaving/collapsing stays instant
+// (the 1100ms CSS transition on the card itself already makes that feel
+// smooth), and it only affects mouse hover: the desktop-only nature of
+// this whole interaction means it has no effect on mobile regardless.
+const HOVER_INTENT_MS = 260;
+
 export default function ValuesSection() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [topRef, topInView] = useInView(0.3);
+  const hoverTimer = useRef(null);
+
+  useEffect(() => () => clearTimeout(hoverTimer.current), []);
+
+  function handleEnter(i) {
+    clearTimeout(hoverTimer.current);
+    hoverTimer.current = setTimeout(() => setActiveIndex(i), HOVER_INTENT_MS);
+  }
+
+  function handleLeave() {
+    clearTimeout(hoverTimer.current);
+    setActiveIndex(DEFAULT_ACTIVE);
+  }
+
+  function handleToggle(i) {
+    // Click/keyboard activation stays immediate — the delay is only
+    // meant to smooth out incidental mouse movement, not deliberate
+    // interaction.
+    clearTimeout(hoverTimer.current);
+    setActiveIndex(i);
+  }
 
   return (
     <section className="bg-sand-dim py-16 px-5 md:py-22 md:px-8">
@@ -73,9 +103,9 @@ export default function ValuesSection() {
               value={value}
               index={i}
               active={i === activeIndex}
-              onEnter={() => setActiveIndex(i)}
-              onLeave={() => setActiveIndex(DEFAULT_ACTIVE)}
-              onToggle={() => setActiveIndex(i)}
+              onEnter={() => handleEnter(i)}
+              onLeave={handleLeave}
+              onToggle={() => handleToggle(i)}
             />
           ))}
         </div>

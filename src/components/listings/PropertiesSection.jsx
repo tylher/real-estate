@@ -45,7 +45,7 @@ export default function PropertiesSection() {
   };
 
   return (
-    <main className="min-h-screen bg-sand-light px-4 py-10 md:px-8 lg:px-12">
+    <main className="min-h-screen bg-sand-light px-4 py-10 md:px-8 lg:px-12" id="properties">
       <div className="mx-auto max-w-7xl">
         {/* Header + Search */}
         <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">

@@ -4,7 +4,7 @@ export const listingsHero = {
   eyebrow: "Explore a wide range of properties",
   headlineMain: "Discover the best properties",
   headlineAccent: "Worldwide.",
-  cta: { label: "Browse Listings", href: "#listings" },
+  cta: { label: "Browse Listings", href: "#properties" },
   image: "/images/listing-hero.jpg",
 };
 
@@ -78,11 +78,11 @@ export const SAMPLE_PROPERTIES = [
     ],
   },
   {
-    id: 4,
-    image:
-      "https://images.unsplash.com/photo-1600573472592-401b50619c6d?w=800&q=80",
+    id: 4, // new property – you can keep as number or change to string
     tag: "For Rent",
     tagVariant: "clay",
+    image:
+      "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&q=80", // replaced with a working downtown apartment photo
     price: "$3,100/mo",
     title: "Downtown Executive Suite",
     location: "Seattle, WA",
@@ -93,7 +93,7 @@ export const SAMPLE_PROPERTIES = [
       "Penthouse suite with floor-to-ceiling windows, concierge, and waterfront views.",
     amenities: ["Concierge", "Fitness Center", "Valet", "Water View"],
     gallery: [
-      "https://images.unsplash.com/photo-1600573472592-401b50619c6d?w=800&q=80",
+      "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&q=80",
       "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80",
       "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&q=80",
     ],
@@ -190,7 +190,7 @@ export const SAMPLE_PROPERTIES = [
   {
     id: 9,
     image:
-      "https://images.unsplash.com/photo-1600566753086-00f18f6b0052?w=800&q=80",
+      "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&q=80", // replaced with a bright interior
     tag: "For Rent",
     tagVariant: "clay",
     price: "$1,850/mo",
@@ -242,7 +242,7 @@ export const SAMPLE_PROPERTIES = [
   {
     id: 11,
     image:
-      "https://images.unsplash.com/photo-1600047509358-9dc7f2cfc7eb?w=800&q=80",
+      "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&q=80", // garden house with greenery
     tag: "For Rent",
     tagVariant: "clay",
     price: "$2,900/mo",
@@ -268,7 +268,7 @@ export const SAMPLE_PROPERTIES = [
   {
     id: 12,
     image:
-      "https://images.unsplash.com/photo-1605146769289-449113f80f72?w=800&q=80",
+      "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&q=80", // modern prairie-style exterior
     tag: "For Sale",
     tagVariant: "olive",
     price: "$555,000",
@@ -320,7 +320,7 @@ export const SAMPLE_PROPERTIES = [
   {
     id: 14,
     image:
-      "https://images.unsplash.com/photo-1600573472562-0f6e0a2e4d60?w=800&q=80",
+      "https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=800&q=80", // colonial brick exterior
     tag: "For Sale",
     tagVariant: "olive",
     price: "$995,000",
@@ -341,7 +341,7 @@ export const SAMPLE_PROPERTIES = [
   {
     id: 15,
     image:
-      "https://images.unsplash.com/photo-1600585153490-76fb20a32786?w=800&q=80",
+      "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=80", // modern studio with city views
     tag: "For Rent",
     tagVariant: "clay",
     price: "$2,150/mo",
@@ -409,7 +409,7 @@ export const SAMPLE_PROPERTIES = [
   {
     id: 18,
     image:
-      "https://images.unsplash.com/photo-1600047509782-20d39509f26f?w=800&q=80",
+      "https://images.unsplash.com/photo-1570129477492-45c003edd2be?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     tag: "For Sale",
     tagVariant: "olive",
     price: "$275,000",
@@ -422,7 +422,7 @@ export const SAMPLE_PROPERTIES = [
       "Secluded log cabin with a wood‑burning stove, deck, and year‑round stream.",
     amenities: ["Wood Stove", "Stream", "Wrap‑Around Deck", "Hiking Trails"],
     gallery: [
-      "https://images.unsplash.com/photo-1600047509782-20d39509f26f?w=800&q=80",
+      "https://images.unsplash.com/photo-1570129477492-45c003edd2be?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80",
       "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&q=80",
     ],
@@ -456,7 +456,7 @@ export const SAMPLE_PROPERTIES = [
   {
     id: 20,
     image:
-      "https://images.unsplash.com/photo-1605146769289-449113f80f72?w=800&q=80",
+      "https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=800&q=80", // modern ranch with pool
     tag: "For Sale",
     tagVariant: "olive",
     price: "$610,000",
@@ -477,7 +477,7 @@ export const SAMPLE_PROPERTIES = [
   {
     id: 21,
     image:
-      "https://images.unsplash.com/photo-1600566753086-00f18f6b0052?w=800&q=80",
+      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&q=80", // colorful casita exterior
     tag: "For Rent",
     tagVariant: "clay",
     price: "$1,950/mo",
@@ -524,7 +524,7 @@ export const SAMPLE_PROPERTIES = [
   {
     id: 23,
     image:
-      "https://images.unsplash.com/photo-1600047509358-9dc7f2cfc7eb?w=800&q=80",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80", // mountain ski lodge
     tag: "For Rent",
     tagVariant: "clay",
     price: "$3,800/mo",
@@ -618,7 +618,7 @@ export const SAMPLE_PROPERTIES = [
   {
     id: 27,
     image:
-      "https://images.unsplash.com/photo-1600585153490-76fb20a32786?w=800&q=80",
+      "https://images.unsplash.com/photo-1702014862053-946a122b920d?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     tag: "For Rent",
     tagVariant: "clay",
     price: "$1,750/mo",
@@ -631,15 +631,15 @@ export const SAMPLE_PROPERTIES = [
       "Micro‑studio in a historic building with high ceilings, a murphy bed, and bike room.",
     amenities: ["Murphy Bed", "High Ceilings", "Bike Room", "Walk Score 98"],
     gallery: [
-      "https://images.unsplash.com/photo-1600585153490-76fb20a32786?w=800&q=80",
-      "https://images.unsplash.com/photo-1600573472592-401b50619c6d?w=800&q=80",
+      "https://images.unsplash.com/photo-1702014862053-946a122b920d?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://images.unsplash.com/photo-1665153515938-97aac6893f2c?q=80&w=1182&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&q=80",
     ],
   },
   {
     id: 28,
     image:
-      "https://images.unsplash.com/photo-1600047509782-20d39509f26f?w=800&q=80",
+      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     tag: "For Sale",
     tagVariant: "olive",
     price: "$1,050,000",
@@ -652,7 +652,7 @@ export const SAMPLE_PROPERTIES = [
       "Mediterranean villa on the 14th fairway with a casita, pool, and mountain views.",
     amenities: ["Pool", "Casita", "Golf Course Frontage", "Outdoor Kitchen"],
     gallery: [
-      "https://images.unsplash.com/photo-1600047509782-20d39509f26f?w=800&q=80",
+      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80",
       "https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=800&q=80",
     ],
@@ -686,7 +686,7 @@ export const SAMPLE_PROPERTIES = [
   {
     id: 30,
     image:
-      "https://images.unsplash.com/photo-1605146769289-449113f80f72?w=800&q=80",
+      "https://images.unsplash.com/photo-1640885378359-a1e11694554f?q=80&w=1072&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     tag: "For Sale",
     tagVariant: "olive",
     price: "$445,000",
@@ -699,8 +699,8 @@ export const SAMPLE_PROPERTIES = [
       "Classic Maine cottage with a screened porch, ocean views, and a path to the shore.",
     amenities: ["Screened Porch", "Ocean View", "Wood Stove", "Shore Access"],
     gallery: [
-      "https://images.unsplash.com/photo-1605146769289-449113f80f72?w=800&q=80",
-      "https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=800&q=80",
+      "https://images.unsplash.com/photo-1640885378359-a1e11694554f?q=80&w=1072&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://images.unsplash.com/photo-1771531988839-6efe84a4470a?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80",
     ],
   },

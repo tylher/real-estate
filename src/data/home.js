@@ -26,20 +26,11 @@ export const heroSlides = [
     top: "25%",
     headlineTop: "20%",
     sectionHeight: "130vh",
+    // mobile-only:
+    sectionHeightMobile: "60dvh",
+    skyHeightMobile: "50%",
+    
   },
-  // {
-  //   id: "anchor-02",
-  //   sky: "/images/slide-2-sky.png",
-  //   building: "/images/slide-2-building.png",
-  //   tags: ["Grounded", "Warm", "Open Plan"],
-  //   headline: "ANCHOR",
-  //   headlineAccent: "point",
-  //   subheading: "Concrete, timber, and light — a home that holds its ground.",
-  //   meta: "Ikoyi, Lagos — 2024",
-  //   top: "0%",
-  //   headlineTop: "27%",
-  //   sectionHeight: "100vh",
-  // },
   {
     id: "horizon-03",
     sky: "/images/slide-3-sky.png",
@@ -53,6 +44,10 @@ export const heroSlides = [
     top: "8%",
     headlineTop: "43%",
     sectionHeight: "110vh",
+    // mobile-only:
+    sectionHeightMobile: "100dvh",
+    skyHeightMobile: "45%",
+    headlineTopMobile: "16%",
   },
   {
     id: "refuge-04",
@@ -66,9 +61,12 @@ export const heroSlides = [
     top: "20%",
     headlineTop: "20%",
     sectionHeight: "160vh",
+    // mobile-only:
+    sectionHeightMobile: "50dvh",
+    skyHeightMobile: "55%",
+    headlineBottomMobile: "0%",
   },
 ];
-
 // data/values.js
 //
 // Icon must be one of the keys mapped in ValueCard.jsx (lucide-react icons).
@@ -124,10 +122,10 @@ export const properties = [
     tag: "New Listing",
     tagVariant: "clay",
     image:
-      "https://placehold.co/800x600/0c2631/f6f1e8?text=Sunlit+Garden+Duplex",
+      "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&h=600&fit=crop&crop=center&auto=format",
     price: "$185,000",
     title: "Sunlit Garden Duplex",
-    location: "Lekki Phase 1, Lagos",
+    location: "Oniru Estate, Lekki Phase 1, Lagos",
     beds: 4,
     baths: 3,
     sqft: 2400,
@@ -136,10 +134,11 @@ export const properties = [
     id: "prop-2",
     tag: "Prime Pick",
     tagVariant: "olive",
-    image: "https://placehold.co/800x600/9e9935/0c2631?text=Waterfront+Villa",
+    image:
+      "https://images.unsplash.com/photo-1575517111478-7f6afd0973db?w=800&h=600&fit=crop&crop=center&auto=format",
     price: "$620,000",
     title: "Waterfront Villa",
-    location: "Banana Island, Lagos",
+    location: "Banana Island, Ikoyi, Lagos",
     beds: 5,
     baths: 5,
     sqft: 4200,
@@ -149,7 +148,7 @@ export const properties = [
     tag: "For Rent",
     tagVariant: "clay",
     image:
-      "https://placehold.co/800x600/ca9271/0c2631?text=Modern+Loft+Apartment",
+      "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&h=600&fit=crop&crop=center&auto=format",
     price: "$1,450",
     title: "Modern Loft Apartment",
     location: "Victoria Island, Lagos",
@@ -162,7 +161,7 @@ export const properties = [
     tag: "Just Reduced",
     tagVariant: "olive",
     image:
-      "https://placehold.co/800x600/bbb65c/0c2631?text=Contemporary+Family+Home",
+      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&h=600&fit=crop&crop=center&auto=format",
     price: "$275,000",
     title: "Contemporary Family Home",
     location: "Ikeja GRA, Lagos",
@@ -175,7 +174,7 @@ export const properties = [
     tag: "Verified",
     tagVariant: "clay",
     image:
-      "https://placehold.co/800x600/b57652/f6f1e8?text=Cozy+Courtyard+Bungalow",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&h=600&fit=crop&crop=center&auto=format",
     price: "$95,000",
     title: "Cozy Courtyard Bungalow",
     location: "Magodo Phase 2, Lagos",
@@ -187,7 +186,8 @@ export const properties = [
     id: "prop-6",
     tag: "New Listing",
     tagVariant: "olive",
-    image: "https://placehold.co/800x600/9e9935/0c2631?text=Skyline+Penthouse",
+    image:
+      "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&h=600&fit=crop&crop=center&auto=format",
     price: "$410,000",
     title: "Skyline Penthouse",
     location: "Maitama, Abuja",
@@ -197,9 +197,9 @@ export const properties = [
   },
 ];
 
+
 export const COMPANY = {
-  image:
-    "/images/home-1.jpg",
+  image: "/images/home-1.jpg",
   imageAlt: "Modern office interior where the team meets with clients",
   eyebrow: "Who We Are",
   description:

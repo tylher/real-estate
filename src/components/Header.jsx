@@ -7,6 +7,12 @@
 // underline that SLIDES between links via a shared layoutId — Framer Motion
 // animates its position automatically when `pathname` changes, rather than
 // each link independently fading its own underline in/out.
+//
+// MOBILE PASS — only 2 nav links (Home/Listings), so no hamburger menu is
+// needed; the fix is just tightening spacing/sizing so logo + nav + CTA
+// don't crowd a narrow phone screen. Everything below is mobile-first
+// (the smallest class is the default, sm:/md: open it back up) — nothing
+// about the layout itself changed, just the scale.
 
 import { site } from "@/data/site";
 import { motion } from "framer-motion";
@@ -38,26 +44,31 @@ export default function Header() {
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-ink/90 py-3 shadow-lg shadow-ink/20 backdrop-blur-md"
-          : "bg-ink/10 py-5 backdrop-blur-sm"
+          ? "bg-ink/90 py-2.5 shadow-lg shadow-ink/20 backdrop-blur-md sm:py-3"
+          : "bg-ink/10 py-4 backdrop-blur-sm sm:py-5"
       }`}
     >
-      <div className="mx-auto flex max-w-[1400px] items-center justify-between px-6 sm:px-10">
-        {/* Logo */}
-        <Link href="/" className="font-heading text-xl font-bold text-sand">
+      <div className="mx-auto flex max-w-[1400px] items-center justify-between gap-3 px-4 sm:gap-4 sm:px-6 md:px-10">
+        {/* Logo — shrinks a step on phones so a longer site name doesn't
+            crowd the nav/CTA; back to text-xl from sm: up. */}
+        <Link
+          href="/"
+          className="shrink-0 font-heading text-lg font-bold text-sand sm:text-xl"
+        >
           {firstWord}
           <span className="text-olive-light">{rest.join(" ")}</span>
         </Link>
 
-        {/* Nav — Home / Listings only, per the brief */}
-        <nav className="flex items-center gap-8">
+        {/* Nav — Home / Listings only, per the brief. Gap tightens on
+            phones, opens back up at sm:/md:. */}
+        <nav className="flex items-center gap-4 sm:gap-6 md:gap-8">
           {site.nav.map((link) => {
             const isActive = pathname === link.href;
             return (
               <Link
                 key={link.href}
                 href={link.href}
-                className="relative py-1 font-ui text-sm"
+                className="relative py-1 font-ui text-[13px] sm:text-sm"
               >
                 <span
                   className={`transition-colors duration-200 ${
@@ -78,15 +89,17 @@ export default function Header() {
           })}
         </nav>
 
-        {/* CTA — icon-only, no label */}
+        {/* CTA — icon-only, no label. Slightly smaller circle on phones,
+            `shrink-0` so it never gets squeezed by the flex row. */}
         <Link
           href={whatsappUrl}
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Chat us on WhatsApp"
-          className="flex h-10 w-10 items-center justify-center rounded-full bg-olive text-ink transition-colors hover:bg-olive-light"
+          className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-olive text-ink transition-colors hover:bg-olive-light sm:h-10 sm:w-10"
         >
-          <LuPhone size={17} strokeWidth={2} />
+          <LuPhone size={16} strokeWidth={2} className="sm:hidden" />
+          <LuPhone size={17} strokeWidth={2} className="hidden sm:block" />
         </Link>
       </div>
     </header>
