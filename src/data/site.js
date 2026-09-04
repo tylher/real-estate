@@ -1,4 +1,5 @@
 // data/site.js
+import { FaXTwitter } from "react-icons/fa6";
 import { LuFacebook, LuInstagram, LuTwitter } from "react-icons/lu";
 
 export const site = {
@@ -23,9 +24,9 @@ export const site = {
       icon: LuFacebook,
     },
     {
-      label: "Twitter",
+      label: "X",
       href: "https://twitter.com/modernhomes",
-      icon: LuTwitter,
+      icon: FaXTwitter,
     },
   ],
 };
