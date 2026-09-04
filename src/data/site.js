@@ -15,17 +15,17 @@ export const site = {
   social: [
     {
       label: "Instagram",
-      href: "https://instagram.com/modernhomes",
+      href: "https://barakhel.com",
       icon: LuInstagram,
     },
     {
       label: "Facebook",
-      href: "https://facebook.com/modernhomes",
+      href: "https://barakhel.com",
       icon: LuFacebook,
     },
     {
       label: "X",
-      href: "https://twitter.com/modernhomes",
+      href: "https://barakhel.com",
       icon: FaXTwitter,
     },
   ],

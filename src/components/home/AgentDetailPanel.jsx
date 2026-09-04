@@ -9,7 +9,7 @@ export default function AgentDetailPanel({ agent, panelOnRight }) {
     <motion.div
       layout
       transition={{ layout: { duration: 0.6, ease: EASE } }}
-      className={`absolute inset-0 z-20 flex items-end p-4 sm:inset-auto sm:top-0 sm:flex sm:w-80 sm:items-start sm:p-0 ${
+      className={`absolute inset-0 z-20 flex text-sand/85 md:text-ink items-end p-4 sm:inset-auto sm:top-0 sm:flex sm:w-80 sm:items-start sm:p-0 ${
         panelOnRight ? "sm:left-full sm:ml-6" : "sm:right-full sm:mr-6"
       }`}
     >

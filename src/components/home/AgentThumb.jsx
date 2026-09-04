@@ -58,10 +58,12 @@ export default function AgentThumb({ agent, onActivate }) {
         className="h-full w-full object-cover"
       />
 
-      {/* Mobile-only name label */}
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 flex items-end bg-gradient-to-t from-black/80 via-black/20 to-transparent p-3 sm:hidden">
-        <span className="font-display text-sm text-ice">{agent.name}</span>
-      </div>
+      {/* Mobile-only name pill */}
+    <div className="pointer-events-none absolute inset-x-0 bottom-3 flex justify-left sm:hidden ml-4">
+      <span className="rounded-full border border-white/15 bg-black/60 px-3 py-1 font-display text-xs text-sand backdrop-blur-md">
+        {agent.name}
+      </span>
+    </div>
     </motion.button>
   );
 }

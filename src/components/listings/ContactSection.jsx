@@ -20,8 +20,18 @@ const fadeUp = {
 };
 
 const CONTACT_ITEMS = [
-  { icon: LuPhone, label: "Phone Number", value: "+234 805 787 2464" },
-  { icon: LuMail, label: "Email", value: "info@barakhel.com" },
+  {
+    icon: LuPhone,
+    label: "Phone Number",
+    value: "+234 805 787 2464",
+    href: "tel:+2348057872464",
+  },
+  {
+    icon: LuMail,
+    label: "Email",
+    value: "info@barakhel.com",
+    href: "mailto:info@barakhel.com",
+  },
   {
     icon: LuMapPin,
     label: "Address",
@@ -143,7 +153,7 @@ function ContactInfo() {
       </motion.p>
 
       <div className="mt-10 flex flex-col gap-6">
-        {CONTACT_ITEMS.map(({ icon: Icon, label, value }) => (
+        {CONTACT_ITEMS.map(({ icon: Icon, label, value, href }) => (
           <motion.div
             key={label}
             variants={fadeUp}
@@ -167,9 +177,21 @@ function ContactInfo() {
               <p className="font-ui text-[13px] font-medium text-sand">
                 {label}
               </p>
-              <p className="mt-0.5 max-w-[220px] text-[13px] leading-relaxed text-sand-70">
-                {value}
-              </p>
+              {href ? (
+                
+                <a  href={href}
+                  {...(href.startsWith("http")
+                    ? { target: "_blank", rel: "noopener noreferrer" }
+                    : {})}
+                  className="mt-0.5 inline-block max-w-[220px] text-[13px] leading-relaxed text-sand-70 underline-offset-2 transition-colors duration-200 hover:text-olive-light hover:underline"
+                >
+                  {value}
+                </a>
+              ) : (
+                <p className="mt-0.5 max-w-[220px] text-[13px] leading-relaxed text-sand-70">
+                  {value}
+                </p>
+              )}
             </div>
           </motion.div>
         ))}
