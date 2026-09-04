@@ -28,7 +28,7 @@ const spaceGrotesk = Space_Grotesk({
 export const metadata = {
   title: "Modern Homes",
   description:
-    "Discover our modern home designs and find your dream home today.",
+    "A sample real estate website by Barakhel service",
 };
 
 export default function RootLayout({ children }) {
