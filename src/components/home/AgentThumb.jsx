@@ -2,24 +2,40 @@
 
 import { EASE } from "@/lib/motion";
 import { motion } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 
-// Small delay before activating on hover. Without this, activating a thumb
-// reflows the row under the cursor — the mouse can end up over a *different*
-// thumb that just slid into place, re-triggering onMouseEnter and causing
-// rapid back-and-forth activation that looks like images flickering/disappearing.
 const HOVER_DELAY = 90;
 
 export default function AgentThumb({ agent, onActivate }) {
   const timeoutRef = useRef(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 640);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   function handleEnter() {
+    if (isMobile) return; // No hover on mobile
+    
     clearTimeout(timeoutRef.current);
     timeoutRef.current = setTimeout(onActivate, HOVER_DELAY);
   }
 
   function handleLeave() {
+    if (isMobile) return; // No hover on mobile
+    
     clearTimeout(timeoutRef.current);
+  }
+
+  function handleClick() {
+    onActivate(); // Click works on all devices
   }
 
   return (
@@ -30,12 +46,10 @@ export default function AgentThumb({ agent, onActivate }) {
       onMouseEnter={handleEnter}
       onMouseLeave={handleLeave}
       onFocus={onActivate}
+      onClick={handleClick}
       aria-label={`Show details for ${agent.name}`}
-      className="relative h-40 w-full shrink-0 overflow-hidden rounded-2xl border border-white/10 shadow-sm sm:h-64 sm:w-40"
+      className="relative h-full w-full shrink-0 overflow-hidden rounded-2xl border border-white/10 shadow-sm sm:h-64 sm:w-40"
     >
-      {/* `layout` here is the key fix: without it, this image doesn't get
-          Framer Motion's scale-correction during the parent's layoutId
-          transition and can render clipped/invisible for a few frames. */}
       <motion.img
         layout
         src={agent.image}
@@ -43,6 +57,11 @@ export default function AgentThumb({ agent, onActivate }) {
         draggable={false}
         className="h-full w-full object-cover"
       />
+
+      {/* Mobile-only name label */}
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 flex items-end bg-gradient-to-t from-black/80 via-black/20 to-transparent p-3 sm:hidden">
+        <span className="font-display text-sm text-ice">{agent.name}</span>
+      </div>
     </motion.button>
   );
 }

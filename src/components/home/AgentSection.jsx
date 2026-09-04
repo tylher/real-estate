@@ -72,12 +72,10 @@ export default function AgentsSection() {
               what Framer Motion is doing internally to animate the card
               inside it. AgentDetailPanel's left-full/right-full anchors to
               THIS stable box, not to the animated card directly. */}
-          <div
-            className="relative h-72 w-full shrink-0 sm:h-[520px] sm:w-[340px]"
-          >
-            <AgentActiveCard agent={active} />
-            <AgentDetailPanel agent={active} panelOnRight={panelOnRight} />
-          </div>
+          <div className="relative h-72 w-full shrink-0 sm:h-[520px] sm:w-[340px]">
+          <AgentActiveCard key={active.id} agent={active} />
+          <AgentDetailPanel  agent={active} panelOnRight={panelOnRight} />
+        </div>
 
           {after.map((agent) => (
             <AgentThumb

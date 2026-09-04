@@ -4,28 +4,16 @@ import { EASE } from "@/lib/motion";
 import { AnimatePresence, motion } from "framer-motion";
 import { LuMail, LuPhone } from "react-icons/lu";
 
-/**
- * AgentDetailPanel
- * No longer a flex sibling in the image row — it's absolutely positioned
- * against its parent wrapper (see AgentsSection: the <div className="relative">
- * around AgentActiveCard). That keeps it out of the row's gap math entirely,
- * so the images stay evenly spaced no matter which agent is active.
- *
- * `panelOnRight` decides which side it's pinned to:
- * - true  -> sits just right of the active card (left-full + ml matching the row gap)
- * - false -> sits just left of the active card (right-full + mr matching the row gap)
- * Either way it layers (z-20) above whatever thumbnail happens to be underneath it.
- */
 export default function AgentDetailPanel({ agent, panelOnRight }) {
   return (
     <motion.div
       layout
       transition={{ layout: { duration: 0.6, ease: EASE } }}
-      className={`relative w-full py-4 sm:absolute sm:top-0 sm:z-20 sm:w-80 sm:py-0 ${
+      className={`absolute inset-0 z-20 flex items-end p-4 sm:inset-auto sm:top-0 sm:flex sm:w-80 sm:items-start sm:p-0 ${
         panelOnRight ? "sm:left-full sm:ml-6" : "sm:right-full sm:mr-6"
       }`}
     >
-      <div className="w-full rounded-2xl sm:bg-background/90 sm:p-6 sm:shadow-lg sm:backdrop-blur-md">
+      <div className="w-full rounded-2xl border border-white/10 bg-background/90 p-4 shadow-lg backdrop-blur-xl [-webkit-backdrop-filter:blur(20px)] supports-[backdrop-filter]:bg-background/55 sm:bg-background/90 sm:p-6 sm:shadow-lg sm:backdrop-blur-md sm:[-webkit-backdrop-filter:blur(12px)] sm:supports-[backdrop-filter]:bg-background/70">
         <AnimatePresence mode="wait">
           <motion.div
             key={agent.id}
@@ -34,28 +22,28 @@ export default function AgentDetailPanel({ agent, panelOnRight }) {
             exit={{ opacity: 0, y: -12 }}
             transition={{ duration: 0.4, ease: EASE }}
           >
-            <p className="text-base leading-relaxed text-ice-muted sm:text-lg">
+            <p className="text-sm leading-relaxed text-ice-muted sm:text-lg">
               &ldquo;{agent.bio}&rdquo;
             </p>
 
-            <span className="my-5 block h-px w-10 bg-orange" />
+            <span className="my-3 block h-px w-8 bg-orange sm:my-5 sm:w-10" />
 
-            <p className="font-display text-xl text-ice">{agent.name}</p>
-            <p className="mt-1 text-sm text-ice-dim">{agent.title}</p>
+            <p className="font-display text-lg text-ice sm:text-xl">{agent.name}</p>
+            <p className="mt-0.5 text-xs text-ice-dim sm:mt-1 sm:text-sm">{agent.title}</p>
 
-            <div className="mt-4 flex flex-col gap-1.5 border-t border-white/10 pt-4">
+            <div className="mt-3 flex flex-col gap-1 border-t border-white/10 pt-3 sm:mt-4 sm:gap-1.5 sm:pt-4">
               <a
                 href={`tel:${agent.phone.replace(/[^+\d]/g, "")}`}
-                className="flex items-center gap-2 text-sm text-ice-muted transition-colors hover:text-orange"
+                className="flex items-center gap-1.5 text-xs text-ice-muted transition-colors hover:text-orange sm:gap-2 sm:text-sm"
               >
-                <LuPhone className="h-3.5 w-3.5 shrink-0" strokeWidth={1.75} />
+                <LuPhone className="h-3 w-3 shrink-0 sm:h-3.5 sm:w-3.5" strokeWidth={1.75} />
                 {agent.phone}
               </a>
               <a
                 href={`mailto:${agent.email}`}
-                className="flex items-center gap-2 text-sm text-ice-muted transition-colors hover:text-orange"
+                className="flex items-center gap-1.5 text-xs text-ice-muted transition-colors hover:text-orange sm:gap-2 sm:text-sm"
               >
-                <LuMail className="h-3.5 w-3.5 shrink-0" strokeWidth={1.75} />
+                <LuMail className="h-3 w-3 shrink-0 sm:h-3.5 sm:w-3.5" strokeWidth={1.75} />
                 {agent.email}
               </a>
             </div>
