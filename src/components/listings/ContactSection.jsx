@@ -20,12 +20,12 @@ const fadeUp = {
 };
 
 const CONTACT_ITEMS = [
-  { icon: LuPhone, label: "Phone Number", value: "+880 15 XXXX XXXX" },
-  { icon: LuMail, label: "Email", value: "oamin@grabui.com" },
+  { icon: LuPhone, label: "Phone Number", value: "+234 805 787 2464" },
+  { icon: LuMail, label: "Email", value: "info@barakhel.com" },
   {
     icon: LuMapPin,
     label: "Address",
-    value: "55 East 10th Street, New York, NY 10003, United States",
+    value: "97, Kujore Street, Off Ogudu Road, Ojota, Lagos.",
   },
 ];
 

@@ -20,7 +20,7 @@ export default function AgentsSection() {
   console.log(active);
 
   return (
-    <section id="agents" className="bg-background px-6 py-24">
+    <section id="agents" className="bg-background px-6 py-14 sm:py-16">
       <div className="mx-auto max-w-6xl">
         <motion.div
           variants={staggerContainer(0.1)}
@@ -46,7 +46,7 @@ export default function AgentsSection() {
           </motion.h2>
         </motion.div>
 
-        <motion.div
+       <motion.div
           layout
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -55,7 +55,7 @@ export default function AgentsSection() {
             duration: 0.7,
             layout: { duration: 0.6, ease: [0.16, 1, 0.3, 1] },
           }}
-          className="flex flex-col items-stretch gap-4 overflow-x-auto scrollbar-none sm:flex-row sm:items-end sm:gap-6"
+          className="flex flex-col items-center gap-3 overflow-x-auto scrollbar-none sm:flex-row sm:items-end sm:gap-6"
         >
           {before.map((agent) => {
             return (
@@ -72,7 +72,7 @@ export default function AgentsSection() {
               what Framer Motion is doing internally to animate the card
               inside it. AgentDetailPanel's left-full/right-full anchors to
               THIS stable box, not to the animated card directly. */}
-          <div className="relative h-72 w-full shrink-0 sm:h-[520px] sm:w-[340px]">
+          <div className="relative h-96 w-full shrink-0 sm:h-[520px] sm:w-[340px]">
           <AgentActiveCard key={active.id} agent={active} />
           <AgentDetailPanel  agent={active} panelOnRight={panelOnRight} />
         </div>

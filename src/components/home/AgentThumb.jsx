@@ -48,7 +48,7 @@ export default function AgentThumb({ agent, onActivate }) {
       onFocus={onActivate}
       onClick={handleClick}
       aria-label={`Show details for ${agent.name}`}
-      className="relative h-full w-full shrink-0 overflow-hidden rounded-2xl border border-white/10 shadow-sm sm:h-64 sm:w-40"
+      className="relative h-96 w-full shrink-0 overflow-hidden rounded-2xl border border-white/10 shadow-sm sm:h-64 sm:w-40"
     >
       <motion.img
         layout

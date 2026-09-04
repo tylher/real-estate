@@ -4,9 +4,9 @@ import { LuFacebook, LuInstagram, LuTwitter } from "react-icons/lu";
 export const site = {
   name: "Modern Homes",
   tagline: "Premium homes across Lagos, handled personally.",
-  phone: "+234 803 555 0142",
-  email: "hello@modernhomes.ng",
-  address: "12 Admiralty Way, Lekki Phase 1, Lagos",
+  phone: "+234 805 787 2464",
+  email: "info@barakhel.com",
+  address: "97, Kujore Street, Off Ogudu Road, Ojota, Lagos.",
   nav: [
     { label: "Home", href: "/" },
     { label: "Listings", href: "/listings" },

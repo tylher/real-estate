@@ -28,7 +28,14 @@ export default function Typewriter({
             animate={{ opacity: 1 }}
             transition={{ delay: startDelay + i * charDelay, duration: 0.05 }}
           >
-            {char === " " ? "\u00A0" : char}
+            {/* Plain space, not \u00A0 — a non-breaking space has no line-break
+                opportunity by spec, which is what was blocking wrapping on
+                mobile. A regular " " inside its own <motion.span> is not
+                collapsed by normal HTML whitespace rules (that only applies
+                to whitespace-only text runs between elements, not a space
+                that's the sole content of an element), so this still renders
+                reliably while letting the browser wrap at it. */}
+            {char}
           </motion.span>
         ))}
       </span>
