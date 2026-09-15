@@ -48,6 +48,29 @@ export default function PropertyDetailModal({ property, onClose }) {
     agent,
   } = property;
 
+  // Normalise to E.164 digits for wa.me (Nigeria default).
+  const toIntl = (raw = "") => {
+    const digits = raw.replace(/\D/g, "");
+    if (raw.trim().startsWith("+")) return digits;
+    if (digits.startsWith("234")) return digits;
+    if (digits.startsWith("0")) return `234${digits.slice(1)}`;
+    return digits;
+  };
+
+  const WHATSAPP_FALLBACK = "2348012345678"; // replace with the office line
+  const PHONE_FALLBACK = "+2348012345678";
+
+  const waNumber = toIntl(agent?.whatsapp ?? agent?.phone ?? WHATSAPP_FALLBACK);
+  const callNumber = (agent?.phone ?? PHONE_FALLBACK).replace(/[^+\d]/g, "");
+
+  const waMessage = encodeURIComponent(
+    `Hello${agent?.name ? ` ${agent.name}` : ""}, I'd like to schedule a viewing for ${title}${
+      location ? ` in ${location}` : ""
+    }${price ? ` (${price})` : ""}. When are you available?`,
+  );
+
+  const waHref = `https://wa.me/${waNumber}?text=${waMessage}`;
+
   return (
     <Portal>
       {/* Backdrop */}
