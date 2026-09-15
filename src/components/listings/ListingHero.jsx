@@ -52,7 +52,7 @@ export default function ListingsHero() {
               text={listingsHero.headlineMain}
               accent={listingsHero.headlineAccent}
               startDelay={0.6}
-              className="max-w-3xl text-[clamp(2.25rem,5.5vw,4rem)] font-heading font-bold leading-[1.05] text-sand"
+              className="max-w-3xl text-[clamp(2.25rem,5.5vw,4rem)] font-heading font-bold leading-[1.05] text-sand text-wrap"
             />
 
             <motion.a

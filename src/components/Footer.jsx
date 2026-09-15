@@ -59,8 +59,16 @@ export default function Footer() {
 
         {/* Bottom row — copyright + contact */}
         <div className="mt-10 flex flex-col gap-4 border-t border-sand/10 pt-6 font-ui text-xs text-sand-70 sm:flex-row sm:items-center sm:justify-between">
-          <p>
-            © {year} {site.name}. All rights reserved.
+          <p className="">
+            Designed by{" "}
+            
+              <a href="https://barakhel.com"
+              target="_blank"
+              rel="noreferrer"
+              className="text-paper/70 underline underline-offset-2 transition-colors hover:text-paper"
+            >
+              barakhel
+            </a>
           </p>
           <div className="flex flex-wrap gap-x-6 gap-y-2">
             <a

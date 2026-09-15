@@ -219,11 +219,11 @@ export const COMPANY = {
 
 export const AGENTS = [
   {
-    id: "sarah-chen",
-    name: "Sarah Chen",
+    id: "ben-chan",
+    name: "Ben Chan",
     title: "Principal Agent",
     phone: "+1 (415) 555-0142",
-    email: "sarah@yourbrand.com",
+    email: "ben@yourbrand.com",
     bio: "Specializes in luxury waterfront listings across the North Shore, with 12 years guiding buyers to the right home.",
     image:
       "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1200&auto=format&fit=crop",

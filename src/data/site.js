@@ -1,11 +1,12 @@
 // data/site.js
+import { FaXTwitter } from "react-icons/fa6";
 import { LuFacebook, LuInstagram, LuTwitter } from "react-icons/lu";
 
 export const site = {
   name: "Modern Homes",
   tagline: "Premium homes across Lagos, handled personally.",
   phone: "+234 805 787 2464",
-  email: "hello@modernhomes.ng",
+  email: "info@barakhel.com",
   address: "97, Kujore Street, Off Ogudu Road, Ojota, Lagos.",
   nav: [
     { label: "Home", href: "/" },
@@ -14,18 +15,18 @@ export const site = {
   social: [
     {
       label: "Instagram",
-      href: "https://instagram.com/modernhomes",
+      href: "https://barakhel.com",
       icon: LuInstagram,
     },
     {
       label: "Facebook",
-      href: "https://facebook.com/modernhomes",
+      href: "https://barakhel.com",
       icon: LuFacebook,
     },
     {
-      label: "Twitter",
-      href: "https://twitter.com/modernhomes",
-      icon: LuTwitter,
+      label: "X",
+      href: "https://barakhel.com",
+      icon: FaXTwitter,
     },
   ],
 };
