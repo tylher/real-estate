@@ -57,8 +57,8 @@ export default function PropertyDetailModal({ property, onClose }) {
     return digits;
   };
 
-  const WHATSAPP_FALLBACK = "2348012345678"; // replace with the office line
-  const PHONE_FALLBACK = "+2348012345678";
+  const WHATSAPP_FALLBACK = "2348057872464"; // replace with the office line
+  const PHONE_FALLBACK = "+2348057872464";
 
   const waNumber = toIntl(agent?.whatsapp ?? agent?.phone ?? WHATSAPP_FALLBACK);
   const callNumber = (agent?.phone ?? PHONE_FALLBACK).replace(/[^+\d]/g, "");
@@ -192,20 +192,23 @@ export default function PropertyDetailModal({ property, onClose }) {
               )}
 
               <div className="flex flex-col gap-3">
-                <button
-                  type="button"
-                  className="rounded-md bg-ink px-6 py-3.5 font-ui text-sm font-semibold text-sand
-                             transition-colors hover:bg-[#153847]"
+                <a
+                  href={waHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="rounded-md bg-ink px-6 py-3.5 text-center font-ui text-sm font-semibold text-sand
+               transition-colors hover:bg-[#153847]"
                 >
                   Schedule Viewing
-                </button>
-                <button
-                  type="button"
-                  className="rounded-md border border-ink px-6 py-3.5 font-ui text-sm font-semibold text-ink
-                             transition-colors hover:bg-ink hover:text-sand"
+                </a>
+
+                <a
+                  href={`tel:${callNumber}`}
+                  className="rounded-md border border-ink px-6 py-3.5 text-center font-ui text-sm font-semibold text-ink
+               transition-colors hover:bg-ink hover:text-sand"
                 >
                   Contact Agent
-                </button>
+                </a>
               </div>
             </div>
           </div>
