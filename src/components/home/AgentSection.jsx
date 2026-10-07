@@ -4,21 +4,38 @@ import { AGENTS } from "@/data/home";
 import { getAgentLayout } from "@/lib/AgentLayout";
 import { fadeUp, staggerContainer } from "@/lib/motion";
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import AgentActiveCard from "./AgentActiveCard";
 import AgentDetailPanel from "./AgentDetailPanel";
 import AgentThumb from "./AgentThumb";
 
 export default function AgentsSection() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const activeRef = useRef(null);
+  const isFirstRender = useRef(true);
+
   const { before, active, after, panelOnRight } = getAgentLayout(
     AGENTS,
     activeIndex,
   );
 
-  console.log(activeIndex);
-  console.log(active);
+  useEffect(() => {
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      return;
+    }
+    if (window.innerWidth >= 640) return; // desktop is a row, no jump
 
+    // wait for the 0.6s layout animation to settle, then re-centre the card
+    const t = setTimeout(() => {
+      activeRef.current?.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
+    }, 650);
+
+    return () => clearTimeout(t);
+  }, [activeIndex]);
   return (
     <section id="agents" className="bg-background px-6 py-14 sm:py-16">
       <div className="mx-auto max-w-6xl">
@@ -46,7 +63,7 @@ export default function AgentsSection() {
           </motion.h2>
         </motion.div>
 
-       <motion.div
+        <motion.div
           layout
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -72,10 +89,13 @@ export default function AgentsSection() {
               what Framer Motion is doing internally to animate the card
               inside it. AgentDetailPanel's left-full/right-full anchors to
               THIS stable box, not to the animated card directly. */}
-          <div className="relative h-96 w-full shrink-0 sm:h-[520px] sm:w-[340px]">
-          <AgentActiveCard key={active.id} agent={active} />
-          <AgentDetailPanel  agent={active} panelOnRight={panelOnRight} />
-        </div>
+          <div
+            ref={activeRef}
+            className="relative h-96 w-full shrink-0 sm:h-[520px] sm:w-[340px]"
+          >
+            <AgentActiveCard key={active.id} agent={active} />
+            <AgentDetailPanel agent={active} panelOnRight={panelOnRight} />
+          </div>
 
           {after.map((agent) => (
             <AgentThumb

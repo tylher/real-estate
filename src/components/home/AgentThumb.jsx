@@ -45,7 +45,10 @@ export default function AgentThumb({ agent, onActivate }) {
       transition={{ layout: { duration: 0.6, ease: EASE } }}
       onMouseEnter={handleEnter}
       onMouseLeave={handleLeave}
-      onFocus={onActivate}
+      onFocus={(e) => {
+        // keyboard focus only; taps/clicks are handled by onClick
+        if (e.currentTarget.matches(":focus-visible")) onActivate();
+      }}
       onClick={handleClick}
       aria-label={`Show details for ${agent.name}`}
       className="relative h-96 w-full shrink-0 overflow-hidden rounded-2xl border border-white/10 shadow-sm sm:h-64 sm:w-40"
@@ -59,11 +62,11 @@ export default function AgentThumb({ agent, onActivate }) {
       />
 
       {/* Mobile-only name pill */}
-    <div className="pointer-events-none absolute inset-x-0 bottom-3 flex justify-left sm:hidden ml-4">
-      <span className="rounded-full border border-white/15 bg-black/60 px-3 py-1 font-display text-xs text-sand backdrop-blur-md">
-        {agent.name}
-      </span>
-    </div>
+      <div className="pointer-events-none absolute inset-x-0 bottom-3 flex justify-left sm:hidden ml-4">
+        <span className="rounded-full border border-white/15 bg-black/60 px-3 py-1 font-display text-xs text-sand backdrop-blur-md">
+          {agent.name}
+        </span>
+      </div>
     </motion.button>
   );
 }

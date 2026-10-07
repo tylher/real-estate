@@ -227,6 +227,7 @@ export const AGENTS = [
     bio: "Specializes in luxury waterfront listings across the North Shore, with 12 years guiding buyers to the right home.",
     image:
       "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1200&auto=format&fit=crop",
+    textColor: "text-ink",
   },
   {
     id: "marcus-webb",
@@ -237,6 +238,7 @@ export const AGENTS = [
     bio: "A negotiator at heart — Marcus has closed over $180M in residential sales across the metro area.",
     image:
       "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1200&auto=format&fit=crop",
+    textColor: "text-ink",
   },
   {
     id: "elena-cruz",
@@ -247,6 +249,7 @@ export const AGENTS = [
     bio: "Elena's eye for staging and pricing strategy consistently gets sellers above-asking offers.",
     image:
       "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1200&auto=format&fit=crop",
+    textColor: "text-sand-70",
   },
   {
     id: "daniel-ortiz",
@@ -257,6 +260,7 @@ export const AGENTS = [
     bio: "First-time buyers trust Daniel's patient, no-pressure approach to finding the right fit.",
     image:
       "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1200&auto=format&fit=crop",
+    textColor: "text-sand-70",
   },
   {
     id: "priya-nathan",
@@ -267,5 +271,6 @@ export const AGENTS = [
     bio: "Priya helps out-of-state and international clients settle in with zero-stress moves.",
     image:
       "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1200&auto=format&fit=crop",
+    textColor: "text-sand-70",
   },
 ];
